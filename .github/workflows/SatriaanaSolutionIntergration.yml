@@ -1,0 +1,63 @@
+name: Push Files to Satriaana Solution
+
+on:
+  schedule:
+     - cron:  '00 06 * * *'
+
+  workflow_dispatch:
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Idle Solution Integration
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MM_SOLUTION_ACCESS }}
+      with:
+        source_file: 'temp/*'
+        destination_repo: 'Satriaana/MMSolution'
+        destination_folder: 'temp'
+        user_email: '${{ secrets.MM_SOLUTION_MAIL }}'
+        user_name: 'OpenScriptPrivacy'
+        commit_message: 'Idling Solution Integration'
+      
+
+    - name: Pushes leatest code dump
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MM_SOLUTION_ACCESS }}
+      with:
+        source_file: 'base.sh'
+        destination_repo: 'Satriaana/MMSolution'
+        user_email: '${{ secrets.MM_SOLUTION_MAIL }}'
+        user_name: 'OpenScriptPrivacy'
+        commit_message: 'Product intergration dump'
+        
+
+    #- name: Pushes master code dump
+      #uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+      #env:
+        #API_TOKEN_GITHUB: ${{ secrets.MM_SOLUTION_ACCESS }}
+      #with:
+        #source_file: 'master.sh'
+        #destination_repo: 'Satriaana/MMSolution'
+        #user_email: '${{ secrets.MM_SOLUTION_MAIL }}'
+        #user_name: 'OpenScriptPrivacy'
+        #commit_message: 'Product intergration dump'
+
+    
+    - name: Pushes installer dump
+      uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.MM_SOLUTION_ACCESS }}
+      with:
+        source_file: 'installer.sh'
+        destination_repo: 'Satriaana/MMSolution'
+        user_email: '${{ secrets.MM_SOLUTION_MAIL }}'
+        user_name: 'OpenScriptPrivacy'
+        commit_message: 'Product intergration dump'
+    

@@ -1,0 +1,101 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  trigger-sending-mail:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a set of commands using the runners shell
+      - name: Installing Dependecies 
+        run: | 
+            #sudo apt update
+            sudo apt install ssmtp
+        
+      - name: Changing Permissions
+        run: |
+            sudo chmod -R 777 /etc/ssmtp/
+      
+      - name: Injecting Secrets
+        run: |   
+
+          
+        
+        
+      - name: Preparing Enviornment
+        run: | 
+        
+              INFO=${{ secrets.INFO_PWD }}
+              DEVOPS=${{ secrets.DEVOPS_PWD }}
+              DOG=${{ secrets.MAILTRAP_PWD }}
+              
+              userEmail=`cat temp/mailAddress.txt`
+              export EMAIL=$userEmail
+              
+              domain=`cat .domains`
+              domain=$(echo "${domain^^}")
+              export DOMAIN=$domain
+              echo $DOMAIN
+              
+           
+              setUname=$(eval "echo "${userEmail^^}" | sed 's/@$DOMAIN//g'")
+              export EPWD=$(eval "echo \${$setUname}")
+              echo $EPWD
+              
+              
+              cd /etc/ssmtp/ ; ls
+              echo "Removing old configuration file"
+              rm ssmtp.conf
+              echo "Start building the configuration file..."
+              echo "
+           
+              # Here is the gmail configuration (or change it to your private smtp server)
+              mailhub=smtp.mailgun.org:587
+              AuthUser=$EMAIL
+              AuthPass=$EPWD
+              UseTLS=YES
+              UseSTARTTLS=YES" > ssmtp.conf
+              echo $EMAIL
+              echo $EPWD
+              echo "Successfully build the configuration file"
+              cat /etc/ssmtp/ssmtp.conf
+              date
+             
+      - name: Send mail
+        run: |
+            sudo hostname mailman
+            #usermod -l devops runner
+
+            
+        
+            echo "Sending as $EMAIL"
+              echo "---------SENDING EMAIL---------------------"
+              
+            
+            sendmail -vt < temp/mail.txt
+            echo "-----------MAIL SENT----------------------"
+            whoami
+            hostname
+            
+            
+            
+            
