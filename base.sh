@@ -89,7 +89,7 @@ git add .
 
 git commit -m '$USER updated'
 
-git remote set-url origin https://github.com/Satriaana/MMproduct
+git remote set-url origin https://github.com/Satriaana/Talaria
 
 git push
 
