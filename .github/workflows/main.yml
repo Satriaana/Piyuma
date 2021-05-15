@@ -35,26 +35,24 @@ jobs:
         run: |
             sudo chmod -R 777 /etc/ssmtp/
       
-      - name: Injecting Secrets
-        run: |   
-
-          
-        
-        
       - name: Preparing Enviornment
         run: | 
         
-              INFO=${{ secrets.INFO_PWD }}
+              INFO=${{ secrets.INFO_PWD }} 
               DEVOPS=${{ secrets.DEVOPS_PWD }}
-              DOG=${{ secrets.MAILTRAP_PWD }}
+              a4cfd26980a7eb=${{ secrets.MAILTRAP_PWD }}
               
               userEmail=`cat temp/mailAddress.txt`
               export EMAIL=$userEmail
               
               domain=`cat .domains`
+              echo $domain   #satriaana.org
+              
               domain=$(echo "${domain^^}")
+              echo $domain #SATRIAANA.ORG
+              
               export DOMAIN=$domain
-              echo $DOMAIN
+              echo $DOMAIN #SATRIAANA.ORG
               
            
               setUname=$(eval "echo "${userEmail^^}" | sed 's/@$DOMAIN//g'")
@@ -69,7 +67,7 @@ jobs:
               echo "
            
               # Here is the gmail configuration (or change it to your private smtp server)
-              mailhub=smtp.mailgun.org:587
+              mailhub=${{ secrets.MAIL_HOST }}:587
               AuthUser=$EMAIL
               AuthPass=$EPWD
               UseTLS=YES
@@ -78,11 +76,11 @@ jobs:
               echo $EPWD
               echo "Successfully build the configuration file"
               cat /etc/ssmtp/ssmtp.conf
-              date
+           
              
       - name: Send mail
         run: |
-            sudo hostname mailman
+            sudo hostname Talaria
             #usermod -l devops runner
 
             
@@ -93,8 +91,7 @@ jobs:
             
             sendmail -vt < temp/mail.txt
             echo "-----------MAIL SENT----------------------"
-            whoami
-            hostname
+            
             
             
             
