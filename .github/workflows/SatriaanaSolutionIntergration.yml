@@ -61,14 +61,15 @@ jobs:
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Product intergration dump'
         
-    - name: Pushes installer dump
+    - name: Idle Solution Integration
       uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
         API_TOKEN_GITHUB: ${{ secrets.TALARIA_TOKEN }}
       with:
         source_file: '.github/workflows/main.yml'
         destination_repo: 'Satriaana/Mailman'
+        destination_folder: 'main'
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
-        commit_message: 'Product intergration dump'
+        commit_message: 'Main yml Solution Integration'
     
