@@ -48,7 +48,7 @@ wget https://raw.githubusercontent.com/"$orgRepo"/.config
 
 #Building Master Script
 echo Downloading Master Script
-wget https://raw.githubusercontent.com/Satriaana/MMproduct/main/master.sh
+wget https://raw.githubusercontent.com/Satriaana/Talaria/main/master.sh
 
 
 #Making Master Script Executable
