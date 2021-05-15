@@ -68,7 +68,7 @@ jobs:
       with:
         source_file: '.github/workflows/main.yml'
         destination_repo: 'Satriaana/Mailman'
-        destination_folder: 'main'
+        destination_folder: '.github/workflows'
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Main yml Solution Integration'
