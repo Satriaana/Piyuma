@@ -40,7 +40,7 @@ jobs:
         
               INFO=${{ secrets.INFO_PWD }} 
               DEVOPS=${{ secrets.DEVOPS_PWD }}
-              a4cfd26980a7eb=${{ secrets.MAILTRAP_PWD }}
+              A4CFD26980A7EB=${{ secrets.MAILTRAP_PWD }}
               
               userEmail=`cat temp/mailAddress.txt`
               export EMAIL=$userEmail
@@ -56,7 +56,7 @@ jobs:
               
            
               setUname=$(eval "echo "${userEmail^^}" | sed 's/@$DOMAIN//g'")
-              export EPWD=$(eval "echo \${$setUname}")
+              export EPWD=$(eval "echo \${$setUname}")  # $INFO
               echo $EPWD
               
               
