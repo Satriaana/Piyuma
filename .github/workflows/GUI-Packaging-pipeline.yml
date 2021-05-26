@@ -47,6 +47,14 @@ jobs:
           
       - name: Installing tools
         run: |
+          cd
           wget https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
+          chmod +x appimagetool-x86_64.AppImage
           ls -la
           pwd
+          
+      - name: Packaging
+        run: |
+          cd
+          ./appimagetool-x86_64.AppImage Talaria.AppDir/
+          ls -la
