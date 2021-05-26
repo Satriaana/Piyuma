@@ -56,5 +56,6 @@ jobs:
       - name: Packaging
         run: |
           cd
+          ls -la
           ./appimagetool-x86_64.AppImage Talaria.AppDir/
           ls -la
