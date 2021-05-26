@@ -1,5 +1,5 @@
-#!/bin/bash 
-       
+#!/bin/sh
+
 
 artwork=`cat $HOME/Satriaana/MailMan/.artwork`
 echo "$artwork"
@@ -14,7 +14,7 @@ echo "       ###################################################################
        #             Copyright © 2021 ${config[0]}
        #                                                                 #
        ################################################################### "
-       
+
 
 #echo "(1) Send mail
 #auto selected option (1)"
@@ -27,10 +27,10 @@ while [ $count -le $len ]; do
   for N in ${config[@]:1} ; do
   echo "($count) $N"
   #echo "$count"
-  
+
   count=$(($count + 1))
 
-done  	
+done
 done
 
 #echo ${config[$len]}
@@ -54,7 +54,7 @@ fi
 
 	echo
 	echo
-	echo "Sending mail as ${mailAddress} 
+	echo "Sending mail as ${mailAddress}
 	"
 	echo ${mailAddress} > temp/mailAddress.txt
 
@@ -96,5 +96,3 @@ git push
 git config --unset-all credential.helper
 
 git remote remove origin
-
-
