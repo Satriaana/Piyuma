@@ -42,7 +42,7 @@ jobs:
           #icon
           #wget raw.github #####################
 
-          chmod +x AppRun Talaria base-gui.sh
+          chmod +x AppRun Talaria.desktop base-gui.sh
           ls -la
           
       - name: Installing tools
