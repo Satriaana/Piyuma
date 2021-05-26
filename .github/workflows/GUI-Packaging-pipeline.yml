@@ -41,4 +41,11 @@ jobs:
           #icon
           #wget raw.github #####################
 
-          chmod +x AppRun Talaria base-gui.sh 
+          chmod +x AppRun Talaria base-gui.sh
+          ls -la
+          
+      - name: Installing tools
+        run: |
+          wget https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
+          ls -la
+          pwd
