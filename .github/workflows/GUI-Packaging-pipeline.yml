@@ -24,7 +24,7 @@ jobs:
         run: |
           mkdir Talaria.AppDir
 
-          rsync -av --progress * /Talaria.AppDir --exclude Talaria.AppDir
+          rsync -av --progress * Talaria.AppDir --exclude Talaria.AppDir
           #cp -r * Talaria.AppDir
 
           cd Talaria.AppDir
