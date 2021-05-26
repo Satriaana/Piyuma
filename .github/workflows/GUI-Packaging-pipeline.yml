@@ -44,10 +44,10 @@ jobs:
 
           chmod +x AppRun Talaria.desktop base-gui.sh
           ls -la
+          pwd
           
       - name: Installing tools
         run: |
-          cd $HOME
           wget https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
           chmod +x appimagetool-x86_64.AppImage
           ls -la
@@ -55,7 +55,6 @@ jobs:
           
       - name: Packaging
         run: |
-          cd $HOME
           ls -la
           ./appimagetool-x86_64.AppImage Talaria.AppDir/
           ls -la
