@@ -33,7 +33,7 @@ jobs:
           Name=Talaria
           Icon=icon
           Type=Application
-          Categories=Utility" > Talaria.desktop
+          Categories=Utility;" > Talaria.desktop
 
           echo "#!/bin/sh
           cd "$(dirname "$0")"
