@@ -43,20 +43,20 @@ jobs:
           #wget raw.github #####################
 
           chmod +x AppRun Talaria.desktop base-gui.sh
-          ls -la
-          pwd
+
           
       - name: Installing tools
         run: |
           cd /home/runner/work/Talaria/Talaria/
           wget https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
           chmod +x appimagetool-x86_64.AppImage
-          ls -la
-          pwd
           
       - name: Packaging
         run: |
           cd /home/runner/work/Talaria/Talaria/
-          ls -la
           ARCH=x86_64 ./appimagetool-x86_64.AppImage Talaria.AppDir/
-          ls -la
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: talaria-appimage-x86_64
+          path: /home/runner/work/Talaria/Talaria/Talaria-x86_64.AppImage
