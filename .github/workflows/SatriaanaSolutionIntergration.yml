@@ -24,7 +24,7 @@ jobs:
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Idling Solution Integration'
-      
+
 
     - name: Pushes leatest code dump
       uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
@@ -36,7 +36,7 @@ jobs:
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Product intergration dump'
-        
+
 
     #- name: Pushes master code dump
       #uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
@@ -49,7 +49,7 @@ jobs:
         #user_name: 'OpenScriptPrivacy'
         #commit_message: 'Product intergration dump'
 
-    
+
     - name: Pushes installer dump
       uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
@@ -60,7 +60,7 @@ jobs:
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Product intergration dump'
-        
+
     - name: Idle Solution Integration
       uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
@@ -72,4 +72,3 @@ jobs:
         user_email: '${{ secrets.MAIL_ADDRESS }}'
         user_name: 'OpenScriptPrivacy'
         commit_message: 'Main yml Solution Integration'
-    
