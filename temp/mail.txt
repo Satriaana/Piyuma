@@ -1,1 +1,8 @@
-.
+To: core@satriaana.org
+Subject: hello sat
+From: info@satriaana.org
+
+hi there
+im sat mailman
+
+hii
