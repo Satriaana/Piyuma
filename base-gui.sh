@@ -1,9 +1,9 @@
 #!/bin/sh
 
 #reading external files
-artwork=`cat $HOME/Satriaana/MailMan/.artwork`
+artwork=`cat .artwork`
 echo "$artwork"
-mapfile -t config < $HOME/Satriaana/MailMan/.config
+mapfile -t config < .config
 len=`expr ${#config[@]} - 1`
 
 #loading mailAddress
